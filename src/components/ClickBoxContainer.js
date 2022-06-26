@@ -1,4 +1,4 @@
-import { ClickBox } from "./ClickBox"
+import { ClickBox } from "./ClickBox";
 
 const ClickBoxContainer = (props) => {
 
@@ -6,10 +6,10 @@ const ClickBoxContainer = (props) => {
     display: "grid",
     gridTemplateColumns: `repeat(${props.numCol}, 1fr)`,
     gridTemplateRows: `repeat(${props.numRow}, 1fr)`,
-    backgroundImage: "url(https://1.bp.blogspot.com/-wBaod_Bz9Sg/TtcrkXV75aI/AAAAAAAABAk/nxLkFHqI_Zo/s1600/Play+Wheres+Waldo+Online+Puzzle+Game+Gobbling+Gluttons+Closeup.jpg)",
+    backgroundImage: `url('${props.url}')`,
     backgroundSize: "contain",
-    width: "1024px",
-    height: "768px"
+    width: (props.width ? props.width : "1024px"),
+    height: (props.height ? props.height : "768px")
   }
 
   const allClickBox = [];
@@ -21,7 +21,7 @@ const ClickBoxContainer = (props) => {
 
   return(
     <div className="ClickBoxContainer" style={containerStyle}>
-      {allClickBox}
+      {allClickBox !== [] ? allClickBox : ""}
     </div>
   )
 }

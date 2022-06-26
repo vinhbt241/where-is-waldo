@@ -15,5 +15,5 @@ body {
 .ClickBox {
   border-radius: 50%;
   border: .2rem solid green;
-  opacity: 0;
+  opacity: 0.5;
 }
