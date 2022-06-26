@@ -12,13 +12,8 @@ body {
   justify-content: center;
 }
 
-.ClickBoxContainer {
-  background-image: url(https://media.geeksforgeeks.org/wp-content/uploads/20200617021858/final482.png);
-  background-size: cover;
-  width: 80vw;
-  height: 80vh;
-}
-
 .ClickBox {
-  opacity: 0.7;
+  border-radius: 50%;
+  border: .2rem solid green;
+  opacity: 0;
 }
