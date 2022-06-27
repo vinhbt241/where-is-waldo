@@ -5,11 +5,38 @@ import { CharacterPortrait } from "./CharacterPortrait";
 
 const API_URL = "http://127.0.0.1:3000/api/image_infos"
 
-const GamePage= (props) => {
+const GamePage= () => {
   const [imageInfo, setImageInfo] = useState([]);
   const [characters, setCharacters] = useState([]);
+  const [mark, setMark] = useState(
+    [{name: "Waldo", marked: false},
+    {name: "Wilma", marked: false},
+    {name: "Wizard Whitebeard", marked: false},
+    {name: "Odlaw", marked: false}]
+  );
+  const [timer, setTimer] = useState(0);
+
+  const checkCharacter = (event, row, col) => {
+    const characterInBox = characters.find(char => {
+      return (row === char.row && col === char.col)
+    })
+
+    if(characterInBox) {
+      event.target.style.opacity = "1";
+
+      const newMark = mark.map(character => {
+        if(character.name === characterInBox.name) {
+          character.marked = true
+        }
+        return character
+      })
+
+      setMark(newMark);
+    }
+  }
 
   let params = useParams();
+
 
   const getImageInfo = async () => {
     const response = await fetch(API_URL +`/${params.id}}`);
@@ -33,32 +60,41 @@ const GamePage= (props) => {
     })
   }, [])
 
-  const checkCharacter = (event, row, col) => {
-    const characterInBox = characters.filter(char => {
-      return (row === char.row && col === char.col)
-    })
+  useEffect(() => {
+    const timerID = setInterval(() => {
+      setTimer(timer + 1);
+    }, 1000)
 
-    if(characterInBox.length !== 0) {
-      event.target.style.opacity = "1";
-    }
-  }
+    return () => clearInterval(timerID);
+  }, [timer])
+
+
 
   return(
     <div className="GamePage">
       <div className="container">
         <div className="side-container">
-          <div>
+          <div className="timer-container">
             <strong>Timer</strong>
-            Timer go here
+            <br />
+            {(Math.floor(timer / 60)) < 10 ? `0${Math.floor(timer / 60)}` : Math.floor(timer / 60)} 
+            : 
+            {(timer % 60) < 10 ? `0${timer % 60}` : timer % 60}
           </div>
 
           {characters.map(character => {
+            let characterMark = mark.find(char => {
+              return char.name === character.name
+            })
+
             return(
               <CharacterPortrait 
               key={`r${character.row}c${character.col}`}
+              url={character.url}
               name={character.name} 
               row={character.row}
-              col={character.col}/>
+              col={character.col}
+              mark={characterMark.marked}/>
             )
           })}
         </div>

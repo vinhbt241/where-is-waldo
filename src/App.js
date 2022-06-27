@@ -26,7 +26,7 @@ function App() {
         return(
           <Link key={info.id} to={`/${info.id}`}>
             <div>
-              <h1>Add Image Name</h1>
+              <h1>{info.name}</h1>
 
               <ClickBoxContainer
               url={info.url}
