@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ClickBoxContainer } from "./ClickBoxContainer";
 import { CharacterPortrait } from "./CharacterPortrait";
+import { RecordForm } from "./RecordForm";
 
 const API_URL = "http://127.0.0.1:3000/api/image_infos"
 
@@ -15,6 +16,8 @@ const GamePage= () => {
     {name: "Odlaw", marked: false}]
   );
   const [timer, setTimer] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [toggleForm, setToggleForm] = useState(true);
 
   const checkCharacter = (event, row, col) => {
     const characterInBox = characters.find(char => {
@@ -61,17 +64,34 @@ const GamePage= () => {
   }, [])
 
   useEffect(() => {
-    const timerID = setInterval(() => {
-      setTimer(timer + 1);
-    }, 1000)
+    let timerID = undefined;
+
+    if(timerRunning) {
+      timerID = setInterval(() => {
+        setTimer(timer + 1);
+      }, 1000)
+    } else if (!timerRunning) {
+      clearInterval(timerID);
+    }
 
     return () => clearInterval(timerID);
-  }, [timer])
+  }, [timerRunning, timer])
 
+  useEffect(() => {
+    let allMarked = mark.every(character => {
+      return(character.marked)
+    })
 
+    if(allMarked) {
+      setToggleForm(true);
+      setTimerRunning(false);
+    }
+  }, [mark])
 
   return(
     <div className="GamePage">
+      {toggleForm && <RecordForm timer={timer}/>}
+
       <div className="container">
         <div className="side-container">
           <div className="timer-container">

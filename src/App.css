@@ -59,3 +59,47 @@ body {
 .CharacterPortrait img {
   width: 80%;
 }
+
+.record-form-container {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.RecordForm {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30vw;
+  padding: 2rem;
+  border-radius: 15px;
+  gap: 1rem;
+
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.RecordForm label input {
+  text-align: center;
+}
+
+.RecordForm label,
+.timer-record {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+.submit-btn {
+  font-size: 1.5rem;
+  padding: .5em;
+  border-radius: 5px;
+  border: 1px solid black;
+}
