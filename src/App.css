@@ -14,6 +14,36 @@ body {
 
 .ClickBox {
   border-radius: 50%;
-  border: .2rem solid green;
-  opacity: 0.5;
+  border: .4rem solid green;
+  background-color: transparent;
+  opacity: 0;
+}
+
+.GamePage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap:1rem;
+}
+
+.side-container{
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.CharacterPortrait {
+  width: 100%;
+  background-color: greenyellow;
+  height: auto;
+  text-align: center;
 }

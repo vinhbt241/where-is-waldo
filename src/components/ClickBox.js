@@ -1,11 +1,11 @@
 const ClickBox = (props) => {
   
-  const displayCoordinate = () => {
-    console.log(props.row, props.col)
+  const handleClick = (e) => {
+    props.handleClick(e, props.row, props.col);
   }
 
   return(
-    <button className="ClickBox" onClick={displayCoordinate}>
+    <button className="ClickBox" onClick={e => handleClick(e)}>
     </button>
   )
 }

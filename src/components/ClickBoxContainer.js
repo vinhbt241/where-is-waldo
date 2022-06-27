@@ -15,7 +15,11 @@ const ClickBoxContainer = (props) => {
   const allClickBox = [];
   for(let i = 0; i < props.numRow; i++) {
     for(let j = 0; j < props.numCol; j++) {
-      allClickBox.push(<ClickBox key={`c${j}r${i}`} col={j} row={i}/>)
+      allClickBox.push(<ClickBox 
+                        key={`c${j}r${i}`} 
+                        col={j} 
+                        row={i}
+                        handleClick={props.handleClick}/>)
     }
   }
 
