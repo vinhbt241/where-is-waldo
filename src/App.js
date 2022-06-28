@@ -24,8 +24,8 @@ function App() {
     <div className="App">
       {imageInfos.map(info => {
         return(
-          <Link key={info.id} to={`/${info.id}`}>
-            <div>
+          <Link key={info.id} to={`/${info.id}`} style={{ textDecoration: 'none' }}>
+            <div className="link-container">
               <h1>{info.name}</h1>
 
               <ClickBoxContainer

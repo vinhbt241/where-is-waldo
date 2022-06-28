@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ClickBoxContainer } from "./ClickBoxContainer";
 import { CharacterPortrait } from "./CharacterPortrait";
-import { RecordForm } from "./RecordForm";
+import { RecordContainer } from "./RecordContainer";
 
-const API_URL = "http://127.0.0.1:3000/api/image_infos"
+const API_URL = "http://127.0.0.1:3000/api/image_infos";
 
 const GamePage= () => {
   const [imageInfo, setImageInfo] = useState([]);
@@ -16,8 +16,10 @@ const GamePage= () => {
     {name: "Odlaw", marked: false}]
   );
   const [timer, setTimer] = useState(0);
-  const [timerRunning, setTimerRunning] = useState(false);
-  const [toggleForm, setToggleForm] = useState(true);
+  const [timerRunning, setTimerRunning] = useState(true);
+  const [toggleForm, setToggleForm] = useState(false);
+
+  let params = useParams();
 
   const checkCharacter = (event, row, col) => {
     const characterInBox = characters.find(char => {
@@ -37,9 +39,6 @@ const GamePage= () => {
       setMark(newMark);
     }
   }
-
-  let params = useParams();
-
 
   const getImageInfo = async () => {
     const response = await fetch(API_URL +`/${params.id}}`);
@@ -68,14 +67,14 @@ const GamePage= () => {
 
     if(timerRunning) {
       timerID = setInterval(() => {
-        setTimer(timer + 1);
+        setTimer(prevTimer => (prevTimer + 1));
       }, 1000)
     } else if (!timerRunning) {
       clearInterval(timerID);
     }
 
     return () => clearInterval(timerID);
-  }, [timerRunning, timer])
+  }, [timerRunning])
 
   useEffect(() => {
     let allMarked = mark.every(character => {
@@ -90,7 +89,7 @@ const GamePage= () => {
 
   return(
     <div className="GamePage">
-      {toggleForm && <RecordForm timer={timer}/>}
+      {toggleForm && <RecordContainer timer={timer}/>}
 
       <div className="container">
         <div className="side-container">
