@@ -8,6 +8,7 @@ const ClickBoxContainer = (props) => {
     gridTemplateRows: `repeat(${props.numRow}, 1fr)`,
     backgroundImage: `url('${props.url}')`,
     backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
     width: (props.width ? props.width : "1024px"),
     height: (props.height ? props.height : "768px")
   }

@@ -22,11 +22,16 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Where's Waldo?</h1>
+      <p>
+        <i>Waldo likes to travel around the world, and take pictures, too! Can you spot Waldo and his friends? Choose one picture and find out!</i>
+      </p>
+
       {imageInfos.map(info => {
         return(
           <Link key={info.id} to={`/${info.id}`} style={{ textDecoration: 'none' }}>
             <div className="link-container">
-              <h1>{info.name}</h1>
+              <h2>{info.name}</h2>
 
               <ClickBoxContainer
               url={info.url}
@@ -36,6 +41,10 @@ function App() {
           </Link>
         )
       })}
+
+      <p>
+        <i>More pictures coming soon...</i>
+      </p>
     </div>
   );
 }
