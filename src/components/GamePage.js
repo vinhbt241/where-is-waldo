@@ -4,7 +4,7 @@ import { ClickBoxContainer } from "./ClickBoxContainer";
 import { CharacterPortrait } from "./CharacterPortrait";
 import { RecordContainer } from "./RecordContainer";
 
-const API_URL = "http://127.0.0.1:3000/api/image_infos";
+const API_URL = "https://where-is-waldo-241.herokuapp.com/api/image_infos";
 
 const GamePage= () => {
   const [imageInfo, setImageInfo] = useState([]);

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './App.css';
 import { ClickBoxContainer } from './components/ClickBoxContainer';
 
-const API_URL = "http://127.0.0.1:3000/api/image_infos";
+const API_URL = "https://where-is-waldo-241.herokuapp.com/api/image_infos";
 
 const getImageInfos = async () => {
   const response = await fetch(API_URL);

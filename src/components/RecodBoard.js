@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 
-const API_URL = "http://127.0.0.1:3000/api/image_infos";
+const API_URL = "https://where-is-waldo-241.herokuapp.com/api/image_infos";
 
 const RecordBoard = (props) => {
   let params = useParams();

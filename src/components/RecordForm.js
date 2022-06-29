@@ -15,7 +15,7 @@ const RecordForm = (props) => {
 
     props.disableSubmit();
 
-    await fetch("http://127.0.0.1:3000/api/player_records", {
+    await fetch("https://where-is-waldo-241.herokuapp.com/api/player_records", {
       method: "POST",
       body: JSON.stringify({
         name: name,
