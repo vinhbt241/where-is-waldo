@@ -10,8 +10,8 @@ const Index = () => {
     <div>
       <BrowserRouter>
         <Routes>
-          < Route path="/" element={<App />} />
-          < Route path="/:id" element={<GamePage />} />
+          < Route path="/where-is-waldo/" element={<App />} />
+          < Route path="/where-is-waldo/:id" element={<GamePage />} />
         </Routes>
       </BrowserRouter>
     </div>
