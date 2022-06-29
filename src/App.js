@@ -29,7 +29,9 @@ function App() {
 
       {imageInfos.map(info => {
         return(
-          <Link key={info.id} to={`/${info.id}`} style={{ textDecoration: 'none' }}>
+          <Link key={info.id} 
+          to={`/where-is-waldo/${info.id}`} 
+          style={{ textDecoration: 'none' }}>
             <div className="link-container">
               <h2>{info.name}</h2>
 

@@ -19,7 +19,7 @@ const RecordContainer = (props) => {
       <RecordForm timer={props.timer} submitted={submit} disableSubmit={disableSubmit}/>
       <RecordBoard submitted={submit}/>
       <div className="record-nav">
-        <Link to="/"><button className="record-to-home">Return Home</button></Link>
+        <Link to="/where-is-waldo/"><button className="record-to-home">Return Home</button></Link>
         <button onClick={restart}>Restart</button>
       </div>
     </div>
