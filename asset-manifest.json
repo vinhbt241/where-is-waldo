@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/where-is-waldo/static/css/main.e13ddc54.css",
+    "main.js": "/where-is-waldo/static/js/main.be3f2e7c.js",
+    "static/media/green-tick.png": "/where-is-waldo/static/media/green-tick.b198e28fe6df31c138a5.png",
+    "index.html": "/where-is-waldo/index.html",
+    "main.e13ddc54.css.map": "/where-is-waldo/static/css/main.e13ddc54.css.map",
+    "main.be3f2e7c.js.map": "/where-is-waldo/static/js/main.be3f2e7c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e13ddc54.css",
+    "static/js/main.be3f2e7c.js"
+  ]
+}
