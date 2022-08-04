@@ -2,15 +2,26 @@ import { ClickBox } from "./ClickBox";
 
 const ClickBoxContainer = (props) => {
 
-  const containerStyle = {
+  const containerStyleComputer = {
     display: "grid",
     gridTemplateColumns: `repeat(${props.numCol}, 1fr)`,
     gridTemplateRows: `repeat(${props.numRow}, 1fr)`,
     backgroundImage: `url('${props.url}')`,
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    width: (props.width ? props.width : "1024px"),
-    height: (props.height ? props.height : "768px")
+    width: (props.width ? props.width : "55vw"),
+    height: (props.height ? props.height : "41.25vw")
+  }
+
+  const containerStyleIpad = {
+    display: "grid",
+    gridTemplateColumns: `repeat(${props.numCol}, 1fr)`,
+    gridTemplateRows: `repeat(${props.numRow}, 1fr)`,
+    backgroundImage: `url('${props.url}')`,
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    width: (props.width ? props.width : "80vw"),
+    height: (props.height ? props.height : "60vw")
   }
 
   const allClickBox = [];
@@ -25,7 +36,8 @@ const ClickBoxContainer = (props) => {
   }
 
   return(
-    <div className="ClickBoxContainer" style={containerStyle}>
+    <div className="ClickBoxContainer" 
+      style={ window.innerHeight > 1100 ? containerStyleComputer : containerStyleIpad }>
       {allClickBox !== [] ? allClickBox : ""}
     </div>
   )
