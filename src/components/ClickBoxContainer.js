@@ -37,7 +37,7 @@ const ClickBoxContainer = (props) => {
 
   return(
     <div className="ClickBoxContainer" 
-      style={ window.innerHeight > 1100 ? containerStyleComputer : containerStyleIpad }>
+      style={ window.innerWidth > 1100 ? containerStyleComputer : containerStyleIpad }>
       {allClickBox !== [] ? allClickBox : ""}
     </div>
   )
